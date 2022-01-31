@@ -1,0 +1,16 @@
+.promo {
+    min-height: 680px;
+    background: url(../img/bg1.jpg) center (center/cover) no-repeat;
+    padding: 23px 0 82px 0;
+    &__subtitle{
+        color: #fff;
+        font-size: 24px;
+        font-weight: 300;
+        text-align: center;
+    }
+    &__h1 {
+        color: $main-color;
+        font-size: 72px;
+        font-weight: 700;
+    }
+}
