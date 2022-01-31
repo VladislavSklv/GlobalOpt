@@ -10,4 +10,38 @@
     text-transform: uppercase;
     text-align: center;
     cursor: pointer;
+    &_big {
+        display: block;
+        width: 230px;
+        height: 57px;
+        margin: 0 auto;
+        font-size: 15px;
+        font-weight: 500;
+        margin-top: 39px;
+    }
+    &_1200px{
+        display: none;
+    }
+}
+@media(max-width: 1200px){
+    .button{
+        &_1200px{
+            display: block;
+            margin-left:auto;
+            width: 145px;
+            height: 40px;
+        }
+        &_more1200px{
+            display: none;
+        }
+    }
+}
+
+@media(max-width: 950px){
+    .button{
+        &_1200px{
+            width: 140px;
+            height: 35px;
+        }
+    }
 }

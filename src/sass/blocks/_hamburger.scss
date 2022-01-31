@@ -1,0 +1,38 @@
+.hamburger{
+    display: none;
+}
+
+@media (max-width: 768px){
+    .hamburger{
+        display: block;
+        position: absolute;
+        right: 10px;
+        top: 10%;
+        transform: translateY(-90%);
+        width: 26px;
+        height: 12px;
+        span{
+            display: block;
+            height: 2px;
+            width: 100%;
+            background-color: #fff;
+            margin-bottom: 3px;
+            border: none;
+            transition: 0.5s all;
+        }
+        &_active{
+            span{
+                margin-bottom: -2px;
+                    &:first-child{
+                        transform: translateY(3px) rotate(-45deg)
+                    }
+                    &:nth-child(2){
+                        display: none
+                    }
+                    &:last-child{
+                        transform: translateY(3px) rotate(45deg)
+                    }
+            }
+        }
+    }
+}

@@ -5,12 +5,118 @@
     &__subtitle{
         color: #fff;
         font-size: 24px;
+        line-height: 24px;
         font-weight: 300;
         text-align: center;
     }
     &__h1 {
         color: $main-color;
+        font-family: "RobotoCondensed", sans-serif;
         font-size: 72px;
+        line-height: 72px;
         font-weight: 700;
+        text-align: center;
+        margin-top: 26px;
+    }
+    &__title{
+        color: #ffffff;
+        font-family: "RobotoCondensed";
+        font-size: 42px;
+        line-height: 42px;
+        font-weight: 400;
+        text-align: center;
+        margin-top: 9px;
+    }
+    &__hr {
+        display: block;
+        margin: 0 auto;
+        text-align: center;
+        margin-top: 38px;
+    }
+    &-icons{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-top: 27px;
+    }
+    &-icon__wrapper{
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        align-items: center;
+        width: 248px;
+        min-height: 140px;
+        text-align: center;
+        color: #ffffff;
+        font-size: 16px;
+        font-weight: 300;
+    }
+    &-icon{
+        width: 63px;
+        margin-bottom: 20px;
+        img{
+            width: 100%;
+        }
+    }
+}
+
+@media(max-width: 1200px){
+    .promo{
+        &__subtitle{
+            font-size: 24px;
+        }
+        &__h1{
+            font-size: 65px;
+            margin-top: 20px;
+        }
+        &__title{
+            font-size: 38px;
+            margin-top: 5px;
+        }
+        &__hr{
+            height: 8.5px;
+            width: 750px;
+            img{
+                width: 100%;
+                height: 100%;
+            }
+        }
+        &-icons{
+            justify-content: space-around;
+            align-items: flex-start;
+        }
+        &-icon__wrapper{
+            width: 220px;
+            justify-content: space-around;
+        }
+    }
+}
+
+@media(max-width: 950px){
+    .promo{
+        &__subtitle{
+            font-size: 20px;
+        }
+        &__h1{
+            font-size: 50px;
+            line-height: 50px;
+            margin-top: 20px;
+        }
+        &__title{
+            font-size: 29px;
+        }
+        &__hr{
+            height: 8px;
+            width: 565px;
+            margin-top: 25px;
+        }
+        &-icons{
+            flex-wrap: wrap;
+            width: 500px;
+            margin: 20px auto 0 auto;
+        }
+        &-icon__wrapper{
+            margin-bottom: 20px;
+        }
     }
 }
