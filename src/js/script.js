@@ -1,8 +1,10 @@
 $(document).ready(function(){
 
-    let advantagesItem = document.querySelectorAll('.advantages-item'),
+    let animate__movLeft = document.querySelectorAll('.advantages-item'),
+        animate__movRight = document.querySelectorAll('.advantages-item'),
         hamburger = document.querySelector('.hamburger'),
-        nav = document.querySelector('.nav');
+        nav = document.querySelector('.nav'),
+        workItem = document.querySelectorAll('.work__item');
 
     hamburger.addEventListener('click', function(){
         if (hamburger.classList.contains('hamburger_active') == false){
@@ -14,16 +16,25 @@ $(document).ready(function(){
         }
     });
 
-    advantagesItem.forEach(function(item) {
-        item.style.display = 'none';
+    animate__movLeft.forEach(function(item) {
+        item.style.zIndex = '-10';
+    });
+
+    animate__movRight.forEach(function(item) {
+        item.style.zIndex = '-10';
+    });
+
+    workItem.forEach(function(item) {
+        item.style.position = 'absolute';
+        item.style.left = '-100%';
     });
 
     $(window).scroll(function (){
         $('.animate__movLeft').each(function (){
-            var imagePos = $(this).offset().top;
-            var topOfWindow = $(window).scrollTop();
-            if (imagePos < (topOfWindow - 600)) {
-                $(this).fadeIn();
+            let imagePos = $(this).offset().top;
+            let topOfWindow = $(window).scrollTop();
+            if (imagePos < (topOfWindow+200)) {
+                $(this).css('z-index', '2');
                 $(this).addClass('animate__fadeInLeft');
             }
         });
@@ -31,11 +42,25 @@ $(document).ready(function(){
 
     $(window).scroll(function (){
         $('.animate__movRight').each(function (){
-            var imagePos = $(this).offset().top;
-            var topOfWindow = $(window).scrollTop();
-            if (imagePos < (topOfWindow - 600)) {
-                $(this).fadeIn();
+            let imagePos = $(this).offset().top;
+            let topOfWindow = $(window).scrollTop();
+            if (imagePos < (topOfWindow+200)) {
+                $(this).css('z-index', '2');
                 $(this).addClass('animate__fadeInRight');
+            }
+        });
+    });
+
+    $(window).scroll(function (){
+        $('.work__item').each(function (){
+            let imagePos = $(this).offset().top;
+            let topOfWindow = $(window).scrollTop();
+            if (imagePos < (topOfWindow+200)) {
+                $(this).css({
+                    'position': 'relative',
+                    'left': '0'
+                });
+                $(this).addClass('animate__fadeInUp');
             }
         });
     });
