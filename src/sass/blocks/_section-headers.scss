@@ -5,10 +5,37 @@
     text-transform: uppercase;
     text-align: center;
 }
+.section-subheader{
+    display: block;
+    max-width: 980px;
+    color: #2e2e2e;
+    font-size: 21px;
+    font-weight: 300;
+    text-align: center;
+    margin: 0 auto; 
+}
+.hr{
+    display: block;
+    width: 148px;
+    height: 1px;
+    background-color: $main-color;
+    border: none;
+    margin: 20px auto 17px auto;
+}
+
+@media(max-width: 1050px){
+    .section-subheader{
+        max-width: 850px;
+    }
+}
 
 @media(max-width: 900px){
     .section-header{
         font-size: 24px;
+    }
+    .section-subheader{
+        font-size: 19px;
+        max-width: 750px;
     }
 }
 
@@ -16,17 +43,30 @@
     .section-header{
         font-size: 22px;
     }
+    .section-subheader{
+        font-size: 17px;
+        max-width: 650px;
+        padding: 0 20px;
+    }
 }
 
 @media(max-width: 567px){
     .section-header{
         font-size: 20px;
+        padding: 0 10px;
+    }
+    .section-subheader{
+        font-size: 15px;
+        max-width: 600px;
     }
 }
 
 @media(max-width: 450px){
     .section-header{
         font-size: 18px;
+    }
+    .hr{
+        width: 110px;
     }
 }
 
