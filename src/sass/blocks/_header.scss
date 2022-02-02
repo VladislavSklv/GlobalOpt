@@ -180,3 +180,14 @@
         }
     }
 }
+
+@media(max-width: 400px){
+    .header{
+        .nav{
+            &__link{
+                font-size: 12px;
+                padding: 10px;
+            }
+        }
+    }
+}

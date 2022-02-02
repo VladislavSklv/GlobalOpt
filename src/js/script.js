@@ -1,7 +1,22 @@
 $(document).ready(function(){
 
-    $('.animate__movLeft').fadeOut();
-    $('.animate__movRight').fadeOut();
+    let advantagesItem = document.querySelectorAll('.advantages-item'),
+        hamburger = document.querySelector('.hamburger'),
+        nav = document.querySelector('.nav');
+
+    hamburger.addEventListener('click', function(){
+        if (hamburger.classList.contains('hamburger_active') == false){
+            hamburger.classList.add('hamburger_active');
+            nav.classList.add('nav_active');
+        } else {
+            hamburger.classList.remove('hamburger_active');
+            nav.classList.remove('nav_active');
+        }
+    });
+
+    advantagesItem.forEach(function(item) {
+        item.style.display = 'none';
+    });
 
     $(window).scroll(function (){
         $('.animate__movLeft').each(function (){
