@@ -33,7 +33,7 @@ $(document).ready(function(){
         $('.animate__movLeft').each(function (){
             let imagePos = $(this).offset().top;
             let topOfWindow = $(window).scrollTop();
-            if (imagePos < (topOfWindow+200)) {
+            if (imagePos < (topOfWindow+300)) {
                 $(this).css('z-index', '2');
                 $(this).addClass('animate__fadeInLeft');
             }
@@ -44,7 +44,7 @@ $(document).ready(function(){
         $('.animate__movRight').each(function (){
             let imagePos = $(this).offset().top;
             let topOfWindow = $(window).scrollTop();
-            if (imagePos < (topOfWindow+200)) {
+            if (imagePos < (topOfWindow+300)) {
                 $(this).css('z-index', '2');
                 $(this).addClass('animate__fadeInRight');
             }
@@ -55,7 +55,7 @@ $(document).ready(function(){
         $('.work__item').each(function (){
             let imagePos = $(this).offset().top;
             let topOfWindow = $(window).scrollTop();
-            if (imagePos < (topOfWindow+200)) {
+            if (imagePos < (topOfWindow+300)) {
                 $(this).css({
                     'position': 'relative',
                     'left': '0'
