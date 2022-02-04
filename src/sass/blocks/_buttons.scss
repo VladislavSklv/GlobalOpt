@@ -22,6 +22,12 @@
     &_1200px{
         display: none;
     }
+    &_form{
+        position: absolute;
+        bottom: -23px;
+        left: 50%;
+        transform: translateX(-50%);
+    }
 }
 @media(max-width: 1200px){
     .button{
