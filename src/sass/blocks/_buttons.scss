@@ -46,6 +46,15 @@
     }
 }
 
+@media(max-width: 768px){
+    .button{
+        &_price{
+            width: 145px;
+            height: 40px;
+        }
+    }
+}
+
 @media(max-width: 565px){
     .button{
         &_1200px{
