@@ -4,7 +4,8 @@ $(document).ready(function(){
         animate__movRight = document.querySelectorAll('.advantages-item'),
         hamburger = document.querySelector('.hamburger'),
         nav = document.querySelector('.nav'),
-        workItem = document.querySelectorAll('.work__item');
+        workItem = document.querySelectorAll('.work__item'),
+        schemeItem = document.querySelectorAll('.scheme__item');
 
     hamburger.addEventListener('click', function(){
         if (hamburger.classList.contains('hamburger_active') == false){
@@ -25,6 +26,11 @@ $(document).ready(function(){
     });
 
     workItem.forEach(function(item) {
+        item.style.position = 'absolute';
+        item.style.left = '-100%';
+    });
+
+    schemeItem.forEach(function(item){
         item.style.position = 'absolute';
         item.style.left = '-100%';
     });
@@ -61,6 +67,20 @@ $(document).ready(function(){
                     'left': '0'
                 });
                 $(this).addClass('animate__fadeInUp');
+            }
+        });
+    });
+
+    $(window).scroll(function (){
+        $('.scheme__item').each(function (){
+            let imagePos = $(this).offset().top;
+            let topOfWindow = $(window).scrollTop();
+            if (imagePos < (topOfWindow+300)) {
+                $(this).css({
+                    'position': 'relative',
+                    'left': '0'
+                });
+                $(this).addClass('animate__fadeInUpBig');
             }
         });
     });
