@@ -22,13 +22,20 @@
     &_1200px{
         display: none;
     }
-    &_form{
-        position: absolute;
-        bottom: -23px;
-        left: 50%;
-        transform: translateX(-50%);
+    &_form{ 
+        display: block;
     }
 }
+.btn-legend{
+    position: absolute;
+    bottom: -23px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 180px;
+    padding: 0 10px;
+    background-color: #fff;
+}
+
 @media(max-width: 1200px){
     .button{
         &_1200px{
@@ -72,5 +79,16 @@
             height: 50px;
             font-size: 14px;
         }
+    }
+}
+
+@media(max-width: 450px){
+    .button{
+        &_form{
+            width: 140px;
+        }
+    }
+    .btn-legend{
+        width: 160px;
     }
 }
