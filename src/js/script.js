@@ -5,7 +5,13 @@ $(document).ready(function(){
         hamburger = document.querySelector('.hamburger'),
         nav = document.querySelector('.nav'),
         workItem = document.querySelectorAll('.work__item'),
-        schemeItem = document.querySelectorAll('.scheme__item');
+        schemeItem = document.querySelectorAll('.scheme__item'),
+        buttonHeader = document.querySelector('.button_1200px'),
+        buttonHeader2 = document.querySelector('.button_more1200px'),
+        buttonFooter = document.querySelector('.button_footer'),
+        buttonPromo = document.querySelector('.button_big'),
+        closeBtn = document.querySelectorAll('.modal__close'),
+        modalFilter = document.querySelectorAll('.filter');
 
     hamburger.addEventListener('click', function(){
         if (hamburger.classList.contains('hamburger_active') == false){
@@ -117,6 +123,31 @@ $(document).ready(function(){
               }
             }
         ]
+    });
+    // Modals
+
+    buttonFooter.addEventListener('click', function(){
+        modalFilter[0].classList.add('filter_active');
+    });
+
+    buttonHeader.addEventListener('click', function(){
+        modalFilter[0].classList.add('filter_active');
+    });
+
+    buttonHeader2.addEventListener('click', function(){
+        modalFilter[0].classList.add('filter_active');
+    });
+
+    buttonPromo.addEventListener('click', function(){
+        modalFilter[1].classList.add('filter_active');
+    });
+
+    closeBtn.forEach(function(item){
+        item.addEventListener('click', function(){
+            modalFilter.forEach(function(i){
+                i.classList.remove('filter_active');
+            });
+        });
     });
     //Smooth scroll
 

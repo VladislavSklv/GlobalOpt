@@ -25,6 +25,12 @@
     &_form{ 
         display: block;
     }
+    &_modal{
+        width: 270px;
+    }
+    &_footer{
+        transition: 0.5s all;
+    }
 }
 .btn-legend{
     position: absolute;
@@ -107,5 +113,12 @@
     }
     .btn-legend{
         width: 160px;
+    }
+}
+@media(max-width: 425px){
+    .button{
+        &_modal{
+            width: 220px;
+        }
     }
 }

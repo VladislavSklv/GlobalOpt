@@ -1,0 +1,69 @@
+.filter{
+    display: none;
+    transition: 0.5s all;
+    &_active{
+        display: block;
+        position: fixed;
+        top: 0;
+        height: 100%;
+        width: 100%;
+        background-color: rgba(0, 0, 0, .6);
+        transition: 0.5s all;
+        z-index: 15;
+        .modal{
+            position: absolute;
+            top: 50%;
+            right: 50%;
+            transform: translate(50%, -50%);
+            width: 300px;
+            min-height: 330px;
+            background-color: #f3f3f3;
+            padding: 20px 10px;
+            border: 4px solid #2e2e2e;
+            border-radius: 15px;
+            &__close{
+                position: absolute;
+                top: 0;
+                right: -35px;
+                font-size: 50px;
+                line-height: 5px;
+                color: $main-color;
+                cursor: pointer;
+            }
+            &__text{
+                color: #2e2e2e;
+                font-size: 16px;
+                font-weight: 400;
+                text-align: center;
+                margin-bottom: 30px;
+            }
+            .feed-form{
+                width: 270px;
+                margin: 0 auto;
+                .feed-form__input{
+                    width: 270px;
+                    margin-bottom: 10px;
+                }
+            }
+        }
+    }
+}
+
+@media(max-width: 425px){
+    .filter{
+        &_active{
+            .modal{
+                top: 45%;
+                width: 250px;
+                min-height: 350px;
+                .feed-form{
+                    width: 220px;
+                    .feed-form__input{
+                        width: 220px;
+                        margin: 0 0 10px 0;
+                    }
+                }
+            }
+        }
+    }
+}
