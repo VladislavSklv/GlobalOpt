@@ -1,0 +1,208 @@
+.footer{
+    min-height: 201px;
+    background-color: #25333c;
+    padding: 24px 0 28px 0;
+    &__first-wrapper{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 0 16px;
+    }
+    &__title{
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        color: #ffffff;
+        font-size: 16px;
+        font-weight: 700;
+    }
+    &__logo{
+        width: 68px;
+        margin-right: 43px;
+        img{
+            width: 100%;
+        }
+    }
+    &__phone{
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+    }
+    &__number{
+        color: #ffffff;
+        font-size: 14px;
+        font-weight: 300;
+        text-align: right;
+        margin-right: 18px;
+        a{
+            color: #fff;
+            font-size: 19px;
+            font-weight: 700;
+            text-decoration: none;
+        }
+    }
+    &__hr{
+        height: 1px;
+        background-color: rgba($color: #fff, $alpha: 0.3);
+        border: none;
+        margin: 26px 0 30px 0;
+    }
+    &__second-wrapper{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 0 16px;
+        font-size: 13px;
+    }
+    &__date{
+        color: rgba($color: #fff, $alpha: 0.6);
+        font-weight: 300;
+        .date{
+            display: inline;
+            .year{
+                display: inline;
+                margin: 0 5px;
+            }
+        }
+    }
+    &__politicy{
+        font-weight: 300;
+        color: $main-color;
+    }
+    &__developers{
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+        color: rgba($color: #fff, $alpha: 0.6);
+        font-weight: 300;   
+        .dev-logo{
+            width: 30px;
+            height: 32px;
+            margin-left: 10px;
+            img{
+                width: 100%;
+            }
+        }
+    }
+}
+
+@media(max-width: 1200px){
+    .footer{
+        .container{
+            width: 1000px;
+        }
+    }
+}
+@media(max-width: 1050px){
+    .footer{
+        .container{
+            width: 850px;
+        }
+        &__title{
+            font-size: 13px;
+        }
+        &__logo{
+            margin-right: 10px;
+        }
+        &__number{
+            span{
+                font-size: 12px;
+            }
+            a{
+                font-size: 15px;
+            }
+        }
+        &__hr{
+            margin: 18px 0 19px 0;
+        }
+        &__second-wrapper{
+            font-size: 12px;
+        }
+    }
+}
+
+@media(max-width: 900px){
+    .footer{
+        .container{
+            width: 750px;
+        }
+    }
+}
+
+@media(max-width: 800px){
+    .footer{
+        .container{
+            width: 600px;
+        }
+        &__title{
+            width: 300px;
+        }
+        &__phone{
+            flex-direction: column;
+            justify-content: flex-start;
+            align-items: flex-end;
+        }
+        &__number{
+            text-align: right;
+            margin: 0 5px 5px 0;
+            span{
+                display: none;
+            }
+        }
+    }
+}
+
+@media(max-width: 630px){
+    .footer{
+        .container{
+            width: 450px;
+        }
+       &__second-wrapper{
+           text-align: center;
+       }
+       &__developers{
+           .dev-logo{
+               margin-left: 0;
+           }
+       }
+    }
+}
+
+@media(max-width: 480px){
+    .footer{
+        .container{
+            width: 350px;
+        }
+        &__phone{
+            padding-bottom: 15px;
+        }
+        &__number{
+            a{
+                font-size: 12px;
+            }
+        }
+        &__text{
+            display: none;
+        }
+        &__logo{
+            width: 64px;
+        }
+        &__date{
+            width: 120px;
+            .date{
+                display: block;
+            }
+        }
+    }
+}
+
+@media(max-width: 380px){
+    .footer{
+        .container{
+            width: 300px;
+        }
+        &__second-wrapper{
+            padding: 0;
+        }
+    }
+}
