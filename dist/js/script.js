@@ -80,9 +80,43 @@ $(document).ready(function(){
                     'position': 'relative',
                     'left': '0'
                 });
-                $(this).addClass('animate__fadeInUpBig');
+                $(this).addClass('animate__fadeInLeftBig');
             }
         });
+    });
+
+    //slick slider
+    $('.slider').slick({
+        centerMode: true,
+        centerPadding: '0',
+        infinite: true,
+        slidesToShow: 3,
+        slidesToScroll: 1,
+        /* variableWidth: true, */
+        prevArrow: '<button type="button" class="slick-prev"><img src="icons/left-arrow.png" alt="<"></button>',
+        nextArrow: '<button type="button" class="slick-next"><img src="icons/right-arrow.png" alt=">"></button>',
+        responsive: [
+            {
+              breakpoint: 769,
+              settings: {
+                arrows: true,
+                dots: false,
+                centerMode: true,
+                centerPadding: '0',
+                slidesToShow: 1
+              }
+            },
+            {
+              breakpoint: 480,
+              settings: {
+                arrows: true,
+                centerMode: true,
+                dots: false,
+                centerPadding: '0',
+                slidesToShow: 1
+              }
+            }
+        ]
     });
     //Smooth scroll
 
