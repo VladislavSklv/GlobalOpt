@@ -149,6 +149,89 @@ $(document).ready(function(){
             });
         });
     });
+
+    //Validation 
+
+    $('#consultation form').validate({
+        rules: {
+            name: "required",
+            phone: "required",
+            email: {
+                required: true,
+                email: true
+            }
+        },
+        messages: {
+            name: "Пожалуйста, введите своё имя",
+            email: {
+                required: "Пожалуйста, введите свою почту",
+                email: "Ваш email должен быть формата name@domain.com"
+            },
+            phone: "Пожалуйста, введите свой телефон"
+        }
+    });
+    $('#modalCall').validate({
+        rules: {
+            name: "required",
+            phone: "required",
+            email: {
+                required: true,
+                email: true
+            }
+        },
+        messages: {
+            name: "Пожалуйста, введите своё имя",
+            email: {
+                required: "Пожалуйста, введите свою почту",
+                email: "Ваш email должен быть формата name@domain.com"
+            },
+            phone: "Пожалуйста, введите свой телефон"
+        }
+    });
+    $('#modalOrder').validate({
+        rules: {
+            name: "required",
+            phone: "required",
+            email: {
+                required: true,
+                email: true
+            }
+        },
+        messages: {
+            name: "Пожалуйста, введите своё имя",
+            email: {
+                required: "Пожалуйста, введите свою почту",
+                email: "Ваш email должен быть формата name@domain.com"
+            },
+            phone: "Пожалуйста, введите свой телефон"
+        }
+    });
+    $('#questions form').validate({
+        rules:{
+            name: "required",
+            phone: "required",
+            email: {
+                required: true,
+                email: true
+            },
+            textarea: {
+                required: true,
+                minlength: 5
+            }
+        },
+        messages: {
+            name: "Пожалуйста, введите своё имя",
+            email: {
+                required: "Пожалуйста, введите свою почту",
+                email: "Ваш email должен быть формата name@domain.com"
+            },
+            phone: "Пожалуйста, введите свой телефон",
+            textarea: {
+                required: "Пожалуйста, введите свой вопрос",
+                minlength: jQuery.validator.format("Введите не меньше {0} символов")
+            }
+        }
+    });
     //Smooth scroll
 
     $(window).scroll(function() {

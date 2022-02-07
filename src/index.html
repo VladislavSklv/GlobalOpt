@@ -28,8 +28,8 @@
                         <li class="nav__item"><a href="#work" class="nav__link">Наша работа</a></li>
                         <li class="nav__item"><a href="#prices" class="nav__link">Цены</a></li>
                         <li class="nav__item"><a href="#scheme" class="nav__link">Схема работы</a></li>
-                        <li class="nav__item"><a href="#" class="nav__link">Отзывы</a></li>
-                        <li class="nav__item"><a href="#" class="nav__link">Контакты</a></li>
+                        <li class="nav__item"><a href="#reviews" class="nav__link">Отзывы</a></li>
+                        <li class="nav__item"><a href="#questions" class="nav__link">Контакты</a></li>
                     </ul>
                 </nav>
                 <div class="header__phone">
@@ -261,7 +261,7 @@
         </div>
     </section>
     <!-- Section Form -->
-    <section class="form">
+    <section id="consultation" class="form">
         <div class="container">
             <div class="form__title">Заказать бесплатную консультацию</div>
             <div class="form__wrapper">
@@ -270,7 +270,7 @@
                     <input name="name" type="name" class="feed-form__input" placeholder="Ваше имя...">
                     <input name="phone" type="tel" class="feed-form__input" placeholder="Ваш номер телефона...">
                     <input name="email" type="email" class="feed-form__input" placeholder="Ваш e-mail...">
-                    <div class="btn-legend"><button class="button button_form">Отправить заявку</button></div>
+                    <div class="btn-legend"><button type="submit" class="button button_form">Отправить заявку</button></div>
                 </form>
             </div>
         </div>
@@ -357,7 +357,7 @@
         </div>
     </section>
     <!-- Section Reviews -->
-    <section class="reviews">
+    <section id="reviews" class="reviews">
         <div class="container">
             <div class="section-header">отзывы наших клиентов</div>
             <hr class="hr">
@@ -409,7 +409,7 @@
         </div>
     </section>
     <!-- Section Questions -->
-    <section class="questions">
+    <section id="questions" class="questions">
         <div class="container">
             <div class="questions-box">
                 <div class="questions-box__title">
@@ -421,7 +421,7 @@
                     <input name="phone" type="tel" class="feed-form__input" placeholder="Ваш номер телефона...">
                     <input name="email" type="email" class="feed-form__input" placeholder="Ваш e-mail...">
                     <textarea class="feed-form__input" type="text" name="textarea" id="text" placeholder="Сообщение..."></textarea>
-                    <button class="button">Отправить заявку</button>
+                    <button type="submit" class="button">Отправить заявку</button>
                 </form>
             </div>
         </div>
@@ -464,7 +464,7 @@
         <div class="modal">
             <div class="modal__close">&times;</div>
             <div class="modal__text">Введите данные и мы вам перезвоним в течение 15 минут!</div>
-            <form action="#" class="feed-form">
+            <form id="modalCall" action="#" class="feed-form">
                 <input name="name" type="name" class="feed-form__input" placeholder="Ваше имя...">
                 <input name="phone" type="tel" class="feed-form__input" placeholder="Ваш номер телефона...">
                 <input name="email" type="email" class="feed-form__input" placeholder="Ваш e-mail...">
@@ -476,7 +476,7 @@
         <div class="modal">
             <div class="modal__close">&times;</div>
             <div class="modal__text">Введите данные, чтобы получить расчёт</div>
-            <form action="#" class="feed-form">
+            <form id="modalOrder" action="#" class="feed-form">
                 <input name="name" type="name" class="feed-form__input" placeholder="Ваше имя...">
                 <input name="phone" type="tel" class="feed-form__input" placeholder="Ваш номер телефона...">
                 <input name="email" type="email" class="feed-form__input" placeholder="Ваш e-mail...">
@@ -486,6 +486,7 @@
     </div>
     <script src="https://yastatic.net/jquery/3.3.1/jquery.min.js"></script>
     <script src="js/slick.min.js"></script>
+    <script src="js/jquery.validate.min.js"></script>
     <script src="js/script.js"></script>
 </body>
 </html>
