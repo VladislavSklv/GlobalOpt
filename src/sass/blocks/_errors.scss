@@ -12,3 +12,8 @@ label.error{
     align-content: center;
     text-align: center;
 }
+@media(max-width: 425px){
+    .error{
+        font-size: 13px;
+    }
+}

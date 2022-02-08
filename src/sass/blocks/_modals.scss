@@ -55,11 +55,16 @@
             .modal{
                 top: 45%;
                 width: 250px;
-                min-height: 350px;
+                min-height: 250px;
+                &__text{
+                    margin-bottom: 10px;
+                    font-size: 13px;
+                }
                 .feed-form{
                     width: 220px;
                     .feed-form__input{
                         width: 220px;
+                        height: 40px;
                         margin: 0 0 10px 0;
                     }
                 }

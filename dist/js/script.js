@@ -27,73 +27,45 @@ $(document).ready(function(){
         }
     });
 
-    animate__movLeft.forEach(function(item) {
-        item.style.zIndex = '-10';
-    });
-
-    animate__movRight.forEach(function(item) {
-        item.style.zIndex = '-10';
-    });
-
-    workItem.forEach(function(item) {
-        item.style.position = 'absolute';
-        item.style.left = '-100%';
-    });
-
-    schemeItem.forEach(function(item){
-        item.style.position = 'absolute';
-        item.style.left = '-100%';
-    });
-
-    $(window).scroll(function (){
-        $('.animate__movLeft').each(function (){
-            let imagePos = $(this).offset().top;
-            let topOfWindow = $(window).scrollTop();
-            if (imagePos < (topOfWindow+300)) {
-                $(this).css('z-index', '2');
-                $(this).addClass('animate__fadeInLeft');
-            }
+    function fadeOutItemByZIndex(className){
+        className.forEach(function(item) {
+            item.style.zIndex = '-10';
         });
-    });
+    }
+    fadeOutItemByZIndex(animate__movLeft);
+    fadeOutItemByZIndex(animate__movRight);
 
-    $(window).scroll(function (){
-        $('.animate__movRight').each(function (){
-            let imagePos = $(this).offset().top;
-            let topOfWindow = $(window).scrollTop();
-            if (imagePos < (topOfWindow+300)) {
-                $(this).css('z-index', '2');
-                $(this).addClass('animate__fadeInRight');
-            }
+    function fadeOutItemByPositionAbs(className){
+        className.forEach(function(item) {
+            item.style.position = 'absolute';
+            item.style.left = '-100%';
         });
-    });
+    }
+    fadeOutItemByPositionAbs(workItem);
+    fadeOutItemByPositionAbs(schemeItem);
 
-    $(window).scroll(function (){
-        $('.work__item').each(function (){
-            let imagePos = $(this).offset().top;
-            let topOfWindow = $(window).scrollTop();
-            if (imagePos < (topOfWindow+300)) {
-                $(this).css({
-                    'position': 'relative',
-                    'left': '0'
-                });
-                $(this).addClass('animate__fadeInUp');
-            }
+    function addCSSAnimation(selectorName, removedCSS, CSSAnimation){
+        $(window).scroll(function (){
+            $(selectorName).each(function (){
+                let imagePos = $(this).offset().top;
+                let topOfWindow = $(window).scrollTop();
+                if (imagePos < (topOfWindow+300)) {
+                    $(this).css(removedCSS);
+                    $(this).addClass(CSSAnimation);
+                }
+            });
         });
-    });
-
-    $(window).scroll(function (){
-        $('.scheme__item').each(function (){
-            let imagePos = $(this).offset().top;
-            let topOfWindow = $(window).scrollTop();
-            if (imagePos < (topOfWindow+300)) {
-                $(this).css({
-                    'position': 'relative',
-                    'left': '0'
-                });
-                $(this).addClass('animate__fadeInLeftBig');
-            }
-        });
-    });
+    }
+    let zIndex = {'z-index': '2'},
+        postionAbs = {
+            'position': 'relative',
+            'left': '0'
+        };
+    console.log(postionAbs);
+    addCSSAnimation('.animate__movLeft', zIndex,'animate__fadeInLeft');
+    addCSSAnimation('.animate__movRight', zIndex,'animate__fadeInRight');
+    addCSSAnimation('.work__item', postionAbs,'animate__fadeInUp');
+    addCSSAnimation('.scheme__item', postionAbs,'animate__fadeInLeftBig');
 
     //slick slider
     $('.slider').slick({
@@ -129,8 +101,16 @@ $(document).ready(function(){
         ]
     });
     // Modals
-
-    buttonFooter.addEventListener('click', function(){
+    function showModalWindow (button, i){
+        button.addEventListener('click', function(){
+            modalFilter[i].classList.add('filter_active');
+        });
+    }
+    showModalWindow(buttonFooter, 0);
+    showModalWindow(buttonHeader, 0);
+    showModalWindow(buttonHeader2, 0);
+    showModalWindow(buttonPromo, 1);
+   /*  buttonFooter.addEventListener('click', function(){
         modalFilter[0].classList.add('filter_active');
     });
 
@@ -144,7 +124,7 @@ $(document).ready(function(){
 
     buttonPromo.addEventListener('click', function(){
         modalFilter[1].classList.add('filter_active');
-    });
+    }); */
 
     closeBtn.forEach(function(item){
         item.addEventListener('click', function(){
@@ -179,60 +159,6 @@ $(document).ready(function(){
     validationWithoutMessages('#modalCall');
     validationWithoutMessages('#modalOrder');
 
-    /* $('#consultation form').validate({
-        rules: {
-            name: "required",
-            phone: "required",
-            email: {
-                required: true,
-                email: true
-            }
-        },
-        messages: {
-            name: "Пожалуйста, введите своё имя",
-            email: {
-                required: "Пожалуйста, введите свою почту",
-                email: "Ваш email должен быть формата name@domain.com"
-            },
-            phone: "Пожалуйста, введите свой телефон"
-        }
-    });
-    $('#modalCall').validate({
-        rules: {
-            name: "required",
-            phone: "required",
-            email: {
-                required: true,
-                email: true
-            }
-        },
-        messages: {
-            name: "Пожалуйста, введите своё имя",
-            email: {
-                required: "Пожалуйста, введите свою почту",
-                email: "Ваш email должен быть формата name@domain.com"
-            },
-            phone: "Пожалуйста, введите свой телефон"
-        }
-    });
-    $('#modalOrder').validate({
-        rules: {
-            name: "required",
-            phone: "required",
-            email: {
-                required: true,
-                email: true
-            }
-        },
-        messages: {
-            name: "Пожалуйста, введите своё имя",
-            email: {
-                required: "Пожалуйста, введите свою почту",
-                email: "Ваш email должен быть формата name@domain.com"
-            },
-            phone: "Пожалуйста, введите свой телефон"
-        }
-    }); */
     $('#questions form').validate({
         rules:{
             name: "required",
