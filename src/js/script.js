@@ -15,7 +15,8 @@ $(document).ready(function(){
         catalogBox = document.querySelectorAll('.catalog-box'),
         catalogInfo = document.querySelectorAll('.catalog-info'),
         btnPriceBack = document.querySelectorAll('.button_back'),
-        btnPriceInfo = document.querySelectorAll('.button_price');
+        btnPriceInfo = document.querySelectorAll('.button_price'),
+        forms = document.querySelectorAll('.feed-form');
 
     hamburger.addEventListener('click', function(){
         if (hamburger.classList.contains('hamburger_active') == false){
@@ -61,7 +62,6 @@ $(document).ready(function(){
             'position': 'relative',
             'left': '0'
         };
-    console.log(postionAbs);
     addCSSAnimation('.animate__movLeft', zIndex,'animate__fadeInLeft');
     addCSSAnimation('.animate__movRight', zIndex,'animate__fadeInRight');
     addCSSAnimation('.work__item', postionAbs,'animate__fadeInUp');
@@ -197,5 +197,43 @@ $(document).ready(function(){
         var _href = $(this).attr("href");
         $("html, body").animate({scrollTop: $(_href).offset().top+"px"});
         return false;
+    });
+    //Mailer
+    /* function mailerSend(selectorName, urlUrl){
+        $(selectorName).submit(function(e) {
+            e.preventDefault();
+            $.ajax({
+                type: "POST",
+                url: urlUrl,
+                data: $(this).serialize()
+            }).done(function() {
+                $(this).find("input").val("");
+                $('#consultation, #order').fadeOut();
+                $('.overlay, #thanking').fadeIn();
+                $(selectorName).trigger('reset');
+            });
+            return false;
+        });
+    };
+    if(forms.classList.contains('feed-form_textarea')){
+        mailerSend('.feed-form_textarea');
+    } else {
+        mailerSend('.feed-form_textarea');
+    } */
+    $('form').on('submit', function () {
+        $('form').submit(function(event) {
+            event.preventDefault();
+            $.ajax({
+                type: "POST",
+                url: "mailer/smart.php",
+                data: $(this).serialize()
+            }).done(function() {
+                $(this).find("input").val("");
+                $('.filter').fadeOut();
+                $('#thanking').fadeIn();
+                $('form').trigger('reset');
+            });
+            return false;
+        });
     });
 });
