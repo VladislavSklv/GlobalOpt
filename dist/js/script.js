@@ -11,7 +11,10 @@ $(document).ready(function(){
         buttonFooter = document.querySelector('.button_footer'),
         buttonPromo = document.querySelector('.button_big'),
         closeBtn = document.querySelectorAll('.modal__close'),
-        modalFilter = document.querySelectorAll('.filter');
+        modalFilter = document.querySelectorAll('.filter'),
+        catalogBox = document.querySelectorAll('.catalog-box'),
+        catalogInfo = document.querySelectorAll('.catalog-info'),
+        btnPriceInfo = document.querySelectorAll('.button_price');
 
     hamburger.addEventListener('click', function(){
         if (hamburger.classList.contains('hamburger_active') == false){
@@ -232,7 +235,14 @@ $(document).ready(function(){
             }
         }
     });
-
+    // Prices
+    btnPriceInfo.forEach(function(item, i){
+        item.addEventListener('click', function(){
+            /* catalogBox[0].classList.remove('catalog-box_active');
+            catalogInfo[0].classList.add('catalog-info_active'); */
+            console.log(catalogBox[0]);
+        });
+    });
     //Smooth scroll
 
     $(window).scroll(function() {
