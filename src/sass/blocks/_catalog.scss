@@ -6,27 +6,35 @@
         justify-content: space-between;
         align-items: flex-start;
         margin-top: 32px;
+        overflow: hidden;
+    }
+    &__item{
+        width: 265px;
+        min-height: 355px;
+        overflow: hidden;
     }
     &-boxes{
+        position: relative;
         display: flex;
         overflow: hidden;
+        min-height: 360px;
         width: 540px;
     }
     &-box{
-        display: none;
-        position: absolute;
-        left: -100%;
-        transform: translateX(100%);
+        transform: translateX(-100%);
         margin-left: 0;
+        transition: 0.5s all;
         &_active{
-            display: block;
-            position: relative;
+            transform: none;
             padding: 1px;
             border: 1px solid #e9e9e9;
             width: 265px;
             min-height: 355px;
             transition: 0.5s all;
             margin-left: 20px;
+            &:first-child{
+                margin-left: 0;
+            }
         }
         &__title{
             display: flex;
@@ -70,22 +78,20 @@
         }
     }
     &-info{
-        display: none;
-        position: absolute;
-        right: -100%;
         transform: translateX(100%);
+        transition: 0.5s all;
+        margin-left: 0;
         &_active{
-            display: block;
-            position: absolute;
-            right: 0;
-            left: 100%;
-            transform: none;
-            transition: 0.5s all;
+            transform: translateX(-100%);
             padding: 1px;
             border: 1px solid #e9e9e9;
             width: 265px;
             min-height: 355px;
             transition: 0.5s all;
+            margin-left: 20px;
+            &:nth-child(2){
+                margin-left: 0;
+            }
         }
         &__text{
             color: #2e2e2e;
@@ -113,7 +119,7 @@
             width: 60%;
             margin: 0 auto;
         }
-        &-box{
+        &-box, &-info, &__item{
             margin-top: 30px;
         }
     }
@@ -134,11 +140,12 @@
         &__wrapper{
             justify-content: space-around;
         }
-        &-box{
+        &-box, &-info, &__item{
             width: 230px;
             min-height: 325px;
             &__wrapper{
                 height: 265px;
+                width: 230px;
             }
             &__title{
                 height: 50px;

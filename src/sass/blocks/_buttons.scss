@@ -76,7 +76,7 @@
 
 @media(max-width: 768px){
     .button{
-        &_price{
+        &_price, &_back{
             width: 145px;
             height: 40px;
         }

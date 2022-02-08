@@ -15,16 +15,17 @@
         width: 361px;
         min-height: 145px;
         opacity: 0.3;
-        transition: 0.2s all;
+        transition: 1s all;
     }
     .slick-center{
         min-height: 245px;
         width: 600px;
         opacity: 1;
-        transition: 0.2s all;
+        transition: 1s all;
         .slider__ava{
             height: 114px;
             width: 114px;
+            transition: 1s all;
         }
         .slider__text{
             color: #3a3a3a;

@@ -14,6 +14,7 @@ $(document).ready(function(){
         modalFilter = document.querySelectorAll('.filter'),
         catalogBox = document.querySelectorAll('.catalog-box'),
         catalogInfo = document.querySelectorAll('.catalog-info'),
+        btnPriceBack = document.querySelectorAll('.button_back'),
         btnPriceInfo = document.querySelectorAll('.button_price');
 
     hamburger.addEventListener('click', function(){
@@ -154,8 +155,31 @@ $(document).ready(function(){
     });
 
     //Validation 
+    function validationWithoutMessages(className){
+        $(className).validate({
+            rules: {
+                name: "required",
+                phone: "required",
+                email: {
+                    required: true,
+                    email: true
+                }
+            },
+            messages: {
+                name: "Пожалуйста, введите своё имя",
+                email: {
+                    required: "Пожалуйста, введите свою почту",
+                    email: "Ваш email должен быть формата name@domain.com"
+                },
+                phone: "Пожалуйста, введите свой телефон"
+            }
+        });
+    }
+    validationWithoutMessages('#consultation form');
+    validationWithoutMessages('#modalCall');
+    validationWithoutMessages('#modalOrder');
 
-    $('#consultation form').validate({
+    /* $('#consultation form').validate({
         rules: {
             name: "required",
             phone: "required",
@@ -208,7 +232,7 @@ $(document).ready(function(){
             },
             phone: "Пожалуйста, введите свой телефон"
         }
-    });
+    }); */
     $('#questions form').validate({
         rules:{
             name: "required",
@@ -238,9 +262,14 @@ $(document).ready(function(){
     // Prices
     btnPriceInfo.forEach(function(item, i){
         item.addEventListener('click', function(){
-            /* catalogBox[0].classList.remove('catalog-box_active');
-            catalogInfo[0].classList.add('catalog-info_active'); */
-            console.log(catalogBox[0]);
+            catalogBox[i].classList.remove('catalog-box_active');
+            catalogInfo[i].classList.add('catalog-info_active');
+        });
+    });
+    btnPriceBack.forEach(function(item, i){
+        item.addEventListener('click', function(){
+            catalogBox[i].classList.add('catalog-box_active');
+            catalogInfo[i].classList.remove('catalog-info_active');
         });
     });
     //Smooth scroll
