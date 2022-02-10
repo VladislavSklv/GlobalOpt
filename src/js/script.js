@@ -163,8 +163,10 @@ $(document).ready(function(){
             data: $(this).serialize()
         }).done(function() {
             $(this).find("input").val("");
-            $('#consultation, #order').fadeOut();
-            $('.overlay, #thanking').fadeIn();
+            $('.filter').fadeOut(modalFilter.forEach(function(item){
+                item.classList.remove('filter_active');
+            }));
+            $('#thanking').fadeIn();
             $('.feed-form_notext').trigger('reset');
         });
         return false;
@@ -177,8 +179,10 @@ $(document).ready(function(){
             data: $(this).serialize()
         }).done(function() {
             $(this).find("input").val("");
-            $('#consultation, #order').fadeOut();
-            $('.overlay, #thanking').fadeIn();
+            $('.filter').fadeOut(modalFilter.forEach(function(item){
+                item.classList.remove('filter_active');
+            }));
+            $('#thanking').fadeIn();
             $('.feed-form_textarea').trigger('reset');
         });
         return false;
