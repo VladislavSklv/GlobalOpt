@@ -16,6 +16,7 @@ $(document).ready(function(){
         catalogInfo = document.querySelectorAll('.catalog-info'),
         btnPriceBack = document.querySelectorAll('.button_back'),
         btnPriceInfo = document.querySelectorAll('.button_price'),
+        thanking = document.getElementById('thanking'),
         forms = document.querySelectorAll('.feed-form');
 
     hamburger.addEventListener('click', function(){
@@ -104,6 +105,7 @@ $(document).ready(function(){
     function showModalWindow (button, i){
         button.addEventListener('click', function(){
             modalFilter[i].classList.add('filter_active');
+            $(modalFilter[i]).fadeIn();
         });
     }
     showModalWindow(buttonFooter, 0);
@@ -114,61 +116,12 @@ $(document).ready(function(){
     closeBtn.forEach(function(item){
         item.addEventListener('click', function(){
             modalFilter.forEach(function(i){
-                i.classList.remove('filter_active');
+                $('#thanking').fadeOut();
+                $(i).fadeOut(function(){
+                    i.classList.remove('filter_active');
+                });
             });
         });
-    });
-
-    //Validation 
-    function validationWithoutMessages(className){
-        $(className).validate({
-            rules: {
-                name: "required",
-                phone: "required",
-                email: {
-                    required: true,
-                    email: true
-                }
-            },
-            messages: {
-                name: "Пожалуйста, введите своё имя",
-                email: {
-                    required: "Пожалуйста, введите свою почту",
-                    email: "Ваш email должен быть формата name@domain.com"
-                },
-                phone: "Пожалуйста, введите свой телефон"
-            }
-        });
-    }
-    validationWithoutMessages('#consultation form');
-    validationWithoutMessages('#modalCall');
-    validationWithoutMessages('#modalOrder');
-
-    $('#questions form').validate({
-        rules:{
-            name: "required",
-            phone: "required",
-            email: {
-                required: true,
-                email: true
-            },
-            textarea: {
-                required: true,
-                minlength: 5
-            }
-        },
-        messages: {
-            name: "Пожалуйста, введите своё имя",
-            email: {
-                required: "Пожалуйста, введите свою почту",
-                email: "Ваш email должен быть формата name@domain.com"
-            },
-            phone: "Пожалуйста, введите свой телефон",
-            textarea: {
-                required: "Пожалуйста, введите свой вопрос",
-                minlength: jQuery.validator.format("Введите не меньше {0} символов")
-            }
-        }
     });
     // Prices
     btnPriceInfo.forEach(function(item, i){
@@ -183,6 +136,8 @@ $(document).ready(function(){
             catalogInfo[i].classList.remove('catalog-info_active');
         });
     });
+
+
     //Smooth scroll
 
     $(window).scroll(function() {
@@ -199,41 +154,33 @@ $(document).ready(function(){
         return false;
     });
     //Mailer
-    /* function mailerSend(selectorName, urlUrl){
-        $(selectorName).submit(function(e) {
-            e.preventDefault();
-            $.ajax({
-                type: "POST",
-                url: urlUrl,
-                data: $(this).serialize()
-            }).done(function() {
-                $(this).find("input").val("");
-                $('#consultation, #order').fadeOut();
-                $('.overlay, #thanking').fadeIn();
-                $(selectorName).trigger('reset');
-            });
-            return false;
+
+    $('.feed-form_notext').submit(function(e) {
+        e.preventDefault();
+        $.ajax({
+            type: "POST",
+            url: "mailer/smart.php",
+            data: $(this).serialize()
+        }).done(function() {
+            $(this).find("input").val("");
+            $('#consultation, #order').fadeOut();
+            $('.overlay, #thanking').fadeIn();
+            $('.feed-form_notext').trigger('reset');
         });
-    };
-    if(forms.classList.contains('feed-form_textarea')){
-        mailerSend('.feed-form_textarea');
-    } else {
-        mailerSend('.feed-form_textarea');
-    } */
-    $('form').on('submit', function () {
-        $('form').submit(function(event) {
-            event.preventDefault();
-            $.ajax({
-                type: "POST",
-                url: "mailer/smart.php",
-                data: $(this).serialize()
-            }).done(function() {
-                $(this).find("input").val("");
-                $('.filter').fadeOut();
-                $('#thanking').fadeIn();
-                $('form').trigger('reset');
-            });
-            return false;
+        return false;
+    });
+    $('.feed-form_textarea').submit(function(e) {
+        e.preventDefault();
+        $.ajax({
+            type: "POST",
+            url: "mailer/smart2.php",
+            data: $(this).serialize()
+        }).done(function() {
+            $(this).find("input").val("");
+            $('#consultation, #order').fadeOut();
+            $('.overlay, #thanking').fadeIn();
+            $('.feed-form_textarea').trigger('reset');
         });
+        return false;
     });
 });

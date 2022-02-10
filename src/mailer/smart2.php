@@ -3,7 +3,7 @@
 $name = $_POST['name'];
 $phone = $_POST['phone'];
 $email = $_POST['email'];
-$textarea = $_POST['textarea']
+$textarea = $_POST['textarea'];
 
 require_once('phpmailer/PHPMailerAutoload.php');
 $mail = new PHPMailer;
@@ -35,7 +35,7 @@ $mail->Body    = '
 	Имя: ' . $name . ' <br>
 	Номер телефона: ' . $phone . '<br>
 	E-mail: ' . $email . '<br>
-	Сооьщение: ' . $textarea . '';
+	Сообщение: ' . $textarea . '';
 
 if(!$mail->send()) {
     return false;
